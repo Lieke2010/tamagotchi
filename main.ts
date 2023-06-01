@@ -1,15 +1,15 @@
 input.onButtonPressed(Button.A, function () {
-    Knuffel += 5
+    Knuffel += 2.5
 })
 input.onButtonPressed(Button.B, function () {
-    Voeding += 5
+    Voeding += 2.5
 })
 let Voeding = 0
 let Dood = 0
-let Knuffel = 20
-Dood = 20
+let Knuffel = 10
+Dood = 10
 basic.forever(function () {
-    if (Dood == 0) {
+    if (Dood == 1) {
         basic.showLeds(`
             . . . . .
             # # . # #
@@ -20,18 +20,41 @@ basic.forever(function () {
     }
 })
 basic.forever(function () {
-    basic.pause(1000)
     Knuffel += -1
     Voeding += -1
+    basic.pause(1000)
 })
 basic.forever(function () {
-    if ((Knuffel && Voeding) > 10) {
+    if ((Knuffel && Voeding) > 5) {
         basic.showLeds(`
             . . . . .
             . # . # .
             . . . . .
             # . . . #
             . # # # .
+            `)
+    }
+})
+basic.forever(function () {
+    if ((Knuffel || Voeding) < 0) {
+        Dood += 1
+        basic.showLeds(`
+            . . . . .
+            # # . # #
+            . . . . .
+            # # # # #
+            . . . . .
+            `)
+    }
+})
+basic.forever(function () {
+    if ((Knuffel || Voeding) < 5) {
+        basic.showLeds(`
+            . . . . .
+            . # . # .
+            . . . . .
+            . # # # .
+            # . . . #
             `)
     }
 })
