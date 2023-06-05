@@ -21,15 +21,6 @@ basic.forever(function () {
     basic.pause(1000)
 })
 basic.forever(function () {
-    if (Dood == 1) {
-        basic.showLeds(`
-            . . . . .
-            # # . # #
-            . . . . .
-            # # # # #
-            . . . . .
-            `)
-    }
     if ((Knuffel && Voeding) > 10) {
         basic.showLeds(`
             . . . . .
@@ -49,6 +40,12 @@ basic.forever(function () {
             `)
     }
     if ((Knuffel || Voeding) < 0) {
-        Dood += 1
+        basic.showLeds(`
+            . . . . .
+            # # . # #
+            . . . . .
+            # # # # #
+            . . . . .
+            `)
     }
 })
