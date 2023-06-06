@@ -4,7 +4,6 @@ input.onButtonPressed(Button.A, function () {
 input.onButtonPressed(Button.B, function () {
     Voeding += 5
 })
-let Voeding = 0
 basic.showLeds(`
     . . . . .
     . # . # .
@@ -14,14 +13,14 @@ basic.showLeds(`
     `)
 let Dood = 0
 let Knuffel = 20
-Dood = 20
+let Voeding = 20
 basic.forever(function () {
     Knuffel += -1
     Voeding += -1
     basic.pause(1000)
 })
 basic.forever(function () {
-    if ((Knuffel && Voeding) > 10) {
+    if ((Knuffel && Voeding) > 10 && !((Knuffel || Voeding) < 10)) {
         basic.showLeds(`
             . . . . .
             . # . # .
@@ -30,7 +29,7 @@ basic.forever(function () {
             . # # # .
             `)
     }
-    if ((Knuffel || Voeding) < 10) {
+    if ((Knuffel || Voeding) < 10 && (Knuffel && Voeding) > 0) {
         basic.showLeds(`
             . . . . .
             . # . # .
