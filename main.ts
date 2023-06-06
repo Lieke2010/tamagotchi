@@ -20,7 +20,7 @@ basic.forever(function () {
     basic.pause(1000)
 })
 basic.forever(function () {
-    if ((Knuffel && Voeding) > 10 && !((Knuffel || Voeding) < 10)) {
+    if (Knuffel > 10 && Voeding > 10) {
         basic.showLeds(`
             . . . . .
             . # . # .
